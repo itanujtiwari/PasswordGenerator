@@ -1,0 +1,50 @@
+<div class="container">
+  <div  class="card border-info mb-3" style="width: 30rem; margin: 10rem auto;">
+    <div class="card-body">
+      <h2 class="text-info text-center">Password Generator</h2>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="floatingInputGroup"
+          placeholder="Text Length"
+          #input (keyup)="getLength(input.value)"
+          autofocus
+        />
+        <label for="floatingInputGroup">Text Length</label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="alpha" (change)="getAlphabet()">
+        <label class="form-check-label" for="alpha">
+          Alphabets
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="num" (change)="getNumber()">
+        <label class="form-check-label" for="num">
+          Numbers
+        </label>
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="sym" (change)="getSymbol()">
+        <label class="form-check-label" for="sym">
+          Symbols
+        </label>
+      </div>
+
+        <button type="button" class="btn btn-info my-3" style="width: 100%" (click)="getPass()" [disabled]="!passLength">
+          Generate
+        </button>
+      </div>
+
+        <!-- interpolation -->
+        <!-- {{generatedPass}} -->
+        <div class= "mb-3" *ngIf="generatedPass">
+          <label class="form-check-label">Generated Pass: </label>
+          <input type="text" class="form-control" value="{{generatedPass}}">
+        </div>
+      </div>
+    </div>
